@@ -1,0 +1,57 @@
+{
+	"extends": "@pumpn",
+	"rules": {
+		"import/no-unused-modules": [
+			"error",
+			{
+				"ignoreExports": [
+					"./src/index.js"
+				],
+				"missingExports": true,
+				"unusedExports": false
+			}
+		],
+		"max-statements": "off",
+		"max-lines-per-function": "off",
+		"no-constructor-return": "off",
+		"no-sync": "off",
+		"no-invalid-this": "off",
+		"no-bitwise": "off",
+		"complexity": "off",
+		"jsdoc/check-examples": [
+			"warn",
+			{
+				"configFile": "./.example.eslintrc"
+			}
+		],
+		"jsdoc/require-jsdoc": [
+			"warn",
+			{
+				"publicOnly": true
+			}
+		],
+		"flowtype/boolean-style": "off",
+		"flowtype/define-flow-type": "off",
+		"flowtype/delimiter-dangle": "off",
+		"flowtype/generic-spacing": "off",
+		"flowtype/no-primitive-constructor-types": "off",
+		"flowtype/no-weak-types": "off",
+		"flowtype/object-type-delimiter": "off",
+		"flowtype/require-exact-type": "off",
+		"flowtype/require-indexer-name": "off",
+		"flowtype/require-parameter-type": "off",
+		"flowtype/require-return-type": "off",
+		"flowtype/require-types-at-top": "off",
+		"flowtype/require-valid-file-annotation": "off",
+		"flowtype/semi": "off",
+		"flowtype/space-after-type-colon": "off",
+		"flowtype/space-before-generic-bracket": "off",
+		"flowtype/space-before-type-colon": "off",
+		"flowtype/union-intersection-spacing": "off",
+		"flowtype/use-flow-type": "off",
+		"flowtype/valid-syntax": "off"
+	},
+	"parserOptions": {
+		"allowAwaitOutsideFunction": true
+	}
+}

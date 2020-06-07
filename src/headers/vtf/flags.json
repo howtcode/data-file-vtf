@@ -1,0 +1,232 @@
+[
+	{
+		"name": "Point Sampling",
+		"value": 1,
+		"description": "Low quality, pixel art texture filtering.",
+		"key": "point",
+		"under": "sampling",
+		"type": "string",
+		"defaultValue": false
+	},
+	{
+		"name": "Trilinear Sampling",
+		"value": 2,
+		"description": "Medium quality texture filtering.",
+		"key": "trilinear",
+		"under": "sampling",
+		"type": "string",
+		"defaultValue": false
+	},
+	{
+		"name": "Clamp S",
+		"value": 4,
+		"description": "Clamp S coordinates.",
+		"key": "s",
+		"under": "clamp",
+		"defaultValue": false
+	},
+	{
+		"name": "Clamp T",
+		"value": 8,
+		"description": "Clamp T coordinates.",
+		"key": "t",
+		"under": "clamp",
+		"defaultValue": false
+	},
+	{
+		"name": "Anisotropic Sampling",
+		"value": 16,
+		"description": "High quality texture filtering.",
+		"key": "anisotropic",
+		"under": "sampling",
+		"type": "string",
+		"defaultValue": false
+	},
+	{
+		"name": "Hint DXT5",
+		"value": 32,
+		"description": "Used in [[skybox]]es. Makes sure edges are seamless.",
+		"key": "hintDXT5",
+		"defaultValue": false
+	},
+	{
+		"name": "PWL Corrected",
+		"value": 64,
+		"description": "Purpose unknown. (piece wise linear functions maybe?)",
+		"key": "pwl",
+		"defaultValue": false
+	},
+	{
+		"name": "Normal Map",
+		"value": 128,
+		"description": "Texture is a normal map.",
+		"key": "normalMap",
+		"defaultValue": false
+	},
+	{
+		"name": "No Mipmaps",
+		"value": 256,
+		"description": "Render largest mipmap only. (Does not delete existing mipmaps, just disables them.)",
+		"key": "mipmaps",
+		"type": "reverse",
+		"defaultValue": false
+	},
+	{
+		"name": "No Level Of Detail",
+		"value": 512,
+		"description": "Not affected by texture resolution settings.",
+		"key": "detail",
+		"type": "reverse",
+		"defaultValue": false
+	},
+	{
+		"name": "No Minimum Mipmap",
+		"value": 1024,
+		"description": "If set, load mipmaps below 32x32 pixels.",
+		"key": "minimumMipmap",
+		"type": "reverse",
+		"defaultValue": false
+	},
+	{
+		"name": "Procedural",
+		"value": 2048,
+		"description": "Texture is an procedural texture (code can modify it).",
+		"key": "procedural",
+		"defaultValue": false
+	},
+	{
+		"name": "One Bit Alpha",
+		"value": 4096,
+		"description": "One bit alpha channel used.",
+		"key": "one",
+		"under": "alphaBits",
+		"type": "string",
+		"defaultValue": false
+	},
+	{
+		"name": "Eight Bit Alpha",
+		"value": 8192,
+		"description": "Eight bit alpha channel used.",
+		"key": "eight",
+		"under": "alphaBits",
+		"type": "string",
+		"defaultValue": true
+	},
+	{
+		"name": "Environment Map",
+		"value": 16384,
+		"description": "Texture is an environment map.",
+		"key": "environment",
+		"under": "type",
+		"type": "string",
+		"defaultValue": false
+	},
+	{
+		"name": "Render Target",
+		"value": 32768,
+		"description": "Texture is a render target.",
+		"key": "render",
+		"under": "type",
+		"type": "string",
+		"defaultValue": false
+	},
+	{
+		"name": "Depth Render Target",
+		"value": 65536,
+		"description": "Texture is a depth render target.",
+		"key": "depthRender",
+		"under": "type",
+		"type": "string",
+		"defaultValue": false
+	},
+	{
+		"name": "No Debug Override",
+		"value": 131072,
+		"description": "",
+		"key": "debugOverride",
+		"type": "reverse",
+		"defaultValue": false
+	},
+	{
+		"name": "Single Copy",
+		"value": 262144,
+		"description": "",
+		"key": "single",
+		"defaultValue": false
+	},
+	{
+		"name": "Pre SRGB",
+		"value": 524288,
+		"description": "SRGB correction has already been applied",
+		"key": "preSRGB",
+		"defaultValue": false
+	},
+	{
+		"name": "Premultiply Color By One Over Mipmap Level",
+		"value": 1048576,
+		"description": "(Internal to VTEX?)",
+		"key": "premultiply",
+		"defaultValue": false
+	},
+	{
+		"name": "Normal To DuDv",
+		"value": 2097152,
+		"description": "Texture is a DuDv map. (Internal to VTEX?)",
+		"key": "dudv",
+		"under": "type",
+		"type": "string",
+		"defaultValue": false
+	},
+	{
+		"name": "Alpha Test Mipmap Generation",
+		"value": 4194304,
+		"description": "(Internal to VTEX?)",
+		"key": "alphaTest",
+		"defaultValue": false
+	},
+	{
+		"name": "No Depth Buffer",
+		"value": 8388608,
+		"description": "Do not [http://en.wikipedia.org/wiki/Z-buffer buffer] for Video Processing, generally render distance.",
+		"key": "depthBuffer",
+		"type": "reverse",
+		"defaultValue": false
+	},
+	{
+		"name": "Nice Filtered",
+		"value": 16777216,
+		"description": "Use [[NICE filtering]] to generate mipmaps. (Internal to VTEX?)",
+		"key": "nice",
+		"defaultValue": false
+	},
+	{
+		"name": "Clamp U",
+		"value": 33554432,
+		"description": "Clamp U coordinates (for volumetric textures).",
+		"key": "u",
+		"under": "clamp",
+		"defaultValue": false
+	},
+	{
+		"name": "Vertex Texture",
+		"value": 67108864,
+		"description": "Usable as a vertex texture",
+		"key": "asVertex",
+		"defaultValue": false
+	},
+	{
+		"name": "SSBump",
+		"value": 134217728,
+		"description": "Texture is a [[$ssbump|SSBump]]. (''SSB'')",
+		"key": "ssbump",
+		"defaultValue": false
+	},
+	{
+		"name": "Border",
+		"value": 536870912,
+		"description": "Clamp to border colour on all texture coordinates",
+		"key": "border",
+		"under": "clamp",
+		"defaultValue": false
+	}
+]

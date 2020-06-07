@@ -1,0 +1,32 @@
+{
+    "presets": [
+        "@babel/preset-env"
+    ],
+    "plugins": [
+        "@babel/plugin-proposal-class-properties",
+        "@babel/plugin-proposal-export-default-from",
+        "@babel/plugin-proposal-logical-assignment-operators",
+        "@babel/plugin-proposal-partial-application",
+        [
+            "@babel/plugin-proposal-pipeline-operator",
+            {
+                "proposal": "fsharp"
+            }
+        ],
+        "@babel/plugin-proposal-throw-expressions",
+        "@babel/plugin-proposal-private-property-in-object",
+        [
+            "@babel/plugin-syntax-module-attributes",
+            {
+                "version": "may-2020"
+            }
+        ],
+        [
+            "@babel/plugin-transform-runtime",
+            {
+                "regenerator": true
+            }
+        ]
+    ],
+    "comments": true
+}
