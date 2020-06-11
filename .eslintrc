@@ -49,9 +49,42 @@
 		"flowtype/space-before-type-colon": "off",
 		"flowtype/union-intersection-spacing": "off",
 		"flowtype/use-flow-type": "off",
-		"flowtype/valid-syntax": "off"
+		"flowtype/valid-syntax": "off",
+		"operator-linebreak": [
+			"error",
+			"after",
+			{
+				"overrides": {
+					"?": "before",
+					":": "before",
+					"|>": "before"
+				}
+			}
+		],
+		"id-length": [
+			"error",
+			{
+				"exceptions": [
+					"x",
+					"y",
+					"z",
+					"_"
+				],
+				"max": 35,
+				"min": 2
+			}
+		]
 	},
 	"parserOptions": {
 		"allowAwaitOutsideFunction": true
-	}
+	},
+	"overrides": [
+		{
+			"files": "babel.config.js",
+			"rules": {
+				"import/no-unused-modules": "off",
+				"import/no-commonjs": "off"
+			}
+		}
+	]
 }

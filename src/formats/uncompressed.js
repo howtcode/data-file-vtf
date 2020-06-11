@@ -1,5 +1,8 @@
 import ColorArray from "../classes/color-array.js";
 
+const {
+	sqrt
+} = Math;
 /**
  *
  */
@@ -32,7 +35,7 @@ class UncompressedData {
 
 		this.data = ColorArray.from(data);
 
-		this.width = width || Math.sqrt(length / channels);
+		this.width = width || sqrt(length / channels);
 		this.height = height || length / (channels * this.width);
 
 		if (length !== this.width * this.height * channels) {

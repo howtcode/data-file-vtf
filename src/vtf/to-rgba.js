@@ -7,7 +7,6 @@ import parseHeader from "./to-rgba/parse-header.js";
 import getMipmap from "./to-rgba/get-mipmap.js";
 
 /**
- * @param buffer
  * @param data
  * @example
  */
@@ -110,13 +109,18 @@ export default async(data) => {
 		mipmapHeight <<= 1;
 	}
 
-	console.log(VTFHeader.assemble({
-		flag: 8192,
-		height,
-		reflectivity: ColorArray.from(data).slicePixel32(0, 3)
-			.normalizedMean24(2.2),
-		width
-	}));
+	const biggestMipmap = mipmaps.reverse()[5];
+
+	console.log(await VTFHeader.assemble(
+		biggestMipmap.data,
+		{
+			flag: 8192,
+			height,
+			reflectivity: ColorArray.from(data).slicePixel32(0, 3)
+				.normalizedMean24(2.2),
+			width
+		}
+	));
 
 	// const rawMipMapsBufferReversed = Buffer.concat(mipmaps.reverse().map((map) => map.rawData));
 

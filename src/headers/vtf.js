@@ -1,35 +1,48 @@
-import formats from "../vtf/formats.json" with type: "json";
+import formats from "../vtf/formats.js"; // with type: "json";
+import {
+	BC1Data
+} from "../formats/compressed/bc.js";
 
+import defaultFlags from "./vtf/flags.js"; // with type: "json";
 import Mask from "./utils/mask.js";
 import stringToCharcodes from "./utils/string-to-charcodes.js";
 import zeros from "./utils/zeros.js";
-import defaultFlags from "./vtf/flags.json" with type: "json";
 
 const mask = new Mask(defaultFlags.map(({
 	key, defaultValue
 }) => [key, defaultValue]));
 
+const {
+	max,
+	ceil
+} = Math;
+
 class VTFHeader {
-	static assemble = ({
-		width,
-		height,
-		flags = {},
-		reflectivity = [
-			0.1,
-			0.1,
-			0.1
-		],
-		bumpMapScale = 1,
-		format = "dxt5",
-		mipmapCount = Math.max(width, height).toString(2).length,
-		lowResImage = {
-			format: "dxt1",
-			height: 16,
-			width: 16
-		},
-		depth = 1,
-		numResources = 3
-	}) => {
+	static assemble = async(
+		input,
+		{
+			width,
+			height,
+			maxSize = max(width, height),
+			flags = {},
+			reflectivity = [
+				0.1,
+				0.1,
+				0.1
+			],
+
+			bumpMapScale = 1,
+			format = "dxt5",
+			mipmapCount = max(width, height).toString(2).length,
+			lowResImage = {
+				format: "dxt1",
+				height: ceil((16 * width) / maxSize),
+				width: ceil((16 * height) / maxSize)
+			},
+			depth = 1,
+			numResources = 3
+		}
+	) => {
 		mask.flags = flags;
 
 		const {
@@ -37,6 +50,10 @@ class VTFHeader {
 			width: lowResImageWidth,
 			height: lowResImageHeight
 		} = lowResImage;
+
+		console.log(input);
+		console.log(await input.resize(lowResImageWidth, lowResImageHeight));
+		console.log(BC1Data.from(input));
 
 		const resourceData = [
 			{
@@ -96,7 +113,13 @@ class VTFHeader {
 			...zeros(4),
 			resourceData.length,
 			...zeros(11),
-			...resources
+			...resources,
+			// TODO: find out what these four numbers mean
+			152,
+			238,
+			128,
+			241,
+			...BC1Data.from(await input.resize(lowResImageWidth, lowResImageHeight)).data
 		];
 
 		return Uint8Array.from(array);

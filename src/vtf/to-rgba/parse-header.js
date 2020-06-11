@@ -1,4 +1,4 @@
-import formats from "../formats.json" with type: "json";
+import formats from "../formats.js"; // with type: "json";
 import VTFHeader from "../../headers/vtf.js";
 
 /**

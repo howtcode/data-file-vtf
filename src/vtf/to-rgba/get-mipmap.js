@@ -21,6 +21,10 @@ import {
 
 const wtf = new Error("wtf is this format then??? (and no, rgb565 isn't a reasonable format btw)");
 
+const {
+	max
+} = Math;
+
 const getMipmap = (
 	buffer,
 	offset,
@@ -28,7 +32,7 @@ const getMipmap = (
 	width,
 	height
 ) => {
-	const dxtSz = (Math.max(4, width) / 4) * (Math.max(4, height) / 4);
+	const dxtSz = (max(4, width) / 4) * (max(4, height) / 4);
 
 	const baseProduct = width * height;
 

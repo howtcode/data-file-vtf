@@ -1,13 +1,9 @@
-import decodeDxt from "decode-dxt";
+import BC from "@howt/compression-bc";
+import sharp from "sharp";
 
 import UncompressedData from "../../uncompressed.js";
 import ColorArray from "../../../classes/color-array.js";
 import UnsupportedConversionError from "../../../errors/unsupported-conversion.js";
-import {
-	ABGRData,
-	ARGBData,
-	BGRAData
-} from "../4.js";
 import {
 	BGRData,
 	RGBData
@@ -24,14 +20,56 @@ import {
 	BC1Data, BC2Data, BC3Data
 } from "../../compressed/bc.js";
 
+import BGRAData from "./bgra.js";
+import ARGBData from "./argb.js";
+import ABGRData from "./abgr.js";
+
+const {
+	floor,
+	ceil,
+	min,
+	max
+} = Math;
 /**
- *
- *
+ * @param newWidth
+ * @param newHeight
  * @class RGBAData
  * @augments {UncompressedData}
+ * @example
  */
 class RGBAData extends UncompressedData {
 	static channels = 4;
+
+	resize = async(newWidth, newHeight = newWidth) => {
+		const {
+			width,
+			height,
+			data,
+			constructor: {
+				channels
+			}
+		} = this;
+
+		return new RGBAData(
+			await sharp(
+				Buffer.from(data),
+				{
+					raw: {
+						channels,
+						height,
+						width
+					}
+				}
+			)
+				.resize({
+					fit: "fill",
+					height: newHeight,
+					width: newWidth
+				})
+				.raw()
+				.toBuffer()
+		);
+	}
 
 	/**
 	 * @param {CompressedData} input
@@ -45,9 +83,7 @@ class RGBAData extends UncompressedData {
 				type,
 				name: inputName
 			},
-			data: {
-				buffer
-			},
+			data,
 			width,
 			height
 		} = input;
@@ -63,16 +99,13 @@ class RGBAData extends UncompressedData {
 			case "bc":
 				switch (constructor) {
 					case BC1Data:
-						console.log("RGBA");
-						console.log(input);
-						newData = decodeDxt(new DataView(buffer), width, height, "dxt1");
-						console.log(newData);
+						newData = BC.decompress(data, width, height, 1);
 						break;
 					case BC2Data:
-						newData = decodeDxt(new DataView(buffer), width, height, "dxt3");
+						newData = BC.decompress(data, width, height, 2);
 						break;
 					case BC3Data:
-						newData = decodeDxt(new DataView(buffer), width, height, "dxt5");
+						newData = BC.decompress(data, width, height, 3);
 						break;
 					default:
 						throw new UnsupportedConversionError(inputName, name);

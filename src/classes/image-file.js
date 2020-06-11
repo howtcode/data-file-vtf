@@ -8,7 +8,7 @@ import path from "path";
 import FileType from "file-type";
 import Jimp from "jimp";
 import webp from "@saschazar/wasm-webp";
-import webpOptions from "@saschazar/wasm-webp/options";
+import webpOptions from "@saschazar/wasm-webp/options.js";
 import TGA from "tga";
 
 import {

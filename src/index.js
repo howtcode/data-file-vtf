@@ -2,7 +2,6 @@ import {
 	promises as fs
 } from "fs";
 
-import decodeDxt from "decode-dxt";
 import Jimp from "jimp";
 // import dxt from "dxt-js";
 

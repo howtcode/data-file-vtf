@@ -1,3 +1,8 @@
+const {
+	max,
+	sqrt
+} = Math;
+
 /**
  *
  */
@@ -40,7 +45,7 @@ class CompressedData {
 			} = this;
 
 			if (length > blockBytes) {
-				this.width = width || 4 * Math.sqrt(length / blockBytes);
+				this.width = width || 4 * sqrt(length / blockBytes);
 				this.height = height || (16 * length) / (this.width * blockBytes);
 			}
 			else if (new Uint32Array(data.buffer).reverse()[0] === (2 ** 32) - 1) {
@@ -60,10 +65,10 @@ class CompressedData {
 				length !==
 					(1 / 16) *
 					blockBytes *
-					Math.max(4, this.width) *
-					Math.max(4, this.height)
+					max(4, this.width) *
+					max(4, this.height)
 			) {
-				throw new Error(`Failed to construct '${name}': The input data byte length doesn't equal (blockBytes * Math.max(4, this.width) * Math.max(4, this.width)) / 16.`);
+				throw new Error(`Failed to construct '${name}': The input data byte length doesn't equal (blockBytes * max(4, this.width) * max(4, this.width)) / 16.`);
 			}
 		}
 	}
