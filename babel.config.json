@@ -19,7 +19,7 @@
 		[
 			"@babel/plugin-proposal-pipeline-operator",
 			{
-				"proposal": "fsharp"
+				"proposal": "minimal"
 			}
 		],
 		"@babel/plugin-proposal-throw-expressions",

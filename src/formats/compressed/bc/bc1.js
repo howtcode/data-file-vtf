@@ -85,8 +85,8 @@ class BC1Data extends CompressedData {
 
 		return input
 			|> RGBAData.from
-			|> (_) => BC.compress(_.data, width, height, 1)
-			|> (_) => new BC1Data(_);
+			|> ((_) => BC.compress(_.data, width, height, 1))
+			|> ((_) => new BC1Data(_));
 	}
 
 	/**
