@@ -39,6 +39,7 @@
 		"@rollup/plugin-json": "^4.1.0",
 		"@rollup/plugin-node-resolve": "^8.0.1",
 		"concurrently": "^5.2.0",
+		"documentation": "^13.0.1",
 		"eslint": "^7.1.0",
 		"jsdoc": "^3.6.4",
 		"jsdoc-babel": "^0.5.0",
@@ -57,7 +58,8 @@
 		"build:module": "rollup  --config",
 		"build:node": "rollup  --config ./rollup/node/rollup.config.js",
 		"build:browser": "rollup  --config ./rollup/browser/rollup.config.js",
-		"docs": "rm -rf ./docs/ && jsdoc -c ./.jsdocrc -r --verbose"
+		"docs": "rm -rf ./docs/ && jsdoc -c ./.jsdocrc -r --verbose",
+		"docs2": "rm -rf ./docs/ && documentation build src -f html -o docs --babel=babel.config.json"
 	},
 	"engines": {
 		"node": ">=14.x"
