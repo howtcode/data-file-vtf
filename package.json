@@ -14,7 +14,7 @@
 		"decode-dxt": "^1.0.1",
 		"dxt-js": "^0.0.3",
 		"file-type": "^14.5.0",
-		"jimp": "^0.12.1",
+		"jimp": "^0.13.0",
 		"ow": "^0.17.0",
 		"sharp": "^0.25.3",
 		"squish-rs": "https://github.com/jansol/squish-rs.git",
