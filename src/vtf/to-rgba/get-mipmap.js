@@ -3,21 +3,21 @@ import {
 	ARGBData,
 	BGRAData,
 	RGBAData
-} from "../../formats/uncompressed/4.js";
+} from "../../data/uncompressed/4.js";
 import {
 	BGRData,
 	RGBData
-} from "../../formats/uncompressed/3.js";
+} from "../../data/uncompressed/3.js";
 import {
 	IAData
-} from "../../formats/uncompressed/2.js";
+} from "../../data/uncompressed/2.js";
 import {
 	IData,
 	AData
-} from "../../formats/uncompressed/1.js";
+} from "../../data/uncompressed/1.js";
 import {
 	BC1Data, BC2Data, BC3Data
-} from "../../formats/compressed/bc.js";
+} from "../../data/compressed/bc.js";
 
 const wtf = new Error("wtf is this format then??? (and no, rgb565 isn't a reasonable format btw)");
 

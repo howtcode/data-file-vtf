@@ -1,7 +1,7 @@
 import formats from "../vtf/formats.js"; // with type: "json";
 import {
 	BC1Data
-} from "../formats/compressed/bc.js";
+} from "../data/compressed/bc.js";
 
 import defaultFlags from "./vtf/flags.js"; // with type: "json";
 import Mask from "./utils/mask.js";
