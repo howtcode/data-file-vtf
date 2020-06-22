@@ -35,7 +35,7 @@
 		"@babel/plugin-syntax-module-attributes": "^7.10.2",
 		"@babel/plugin-transform-runtime": "^7.9.6",
 		"@babel/preset-env": "^7.9.6",
-		"@pumpn/eslint-config": "^4.0.0",
+		"@pumpn/eslint-config": "^6.0.0",
 		"@rollup/plugin-babel": "^5.0.3",
 		"@rollup/plugin-commonjs": "^13.0.0",
 		"@rollup/plugin-json": "^4.1.0",
