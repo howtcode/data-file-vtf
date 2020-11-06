@@ -96,7 +96,7 @@ class ImageFile {
 				lossless: 1
 			};
 
-			const result = webpModule.encode(rgbaToRgb(buffer), width, height, options); // encode image data and return a new Uint8Array
+			const result = webpModule.encode(buffer, width, height, 4, options); // encode image data and return a new Uint8Array
 
 			await fs.writeFile(this.outputPath, result);
 

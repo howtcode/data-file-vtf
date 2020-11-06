@@ -30,10 +30,7 @@
 			}
 		],
 		[
-			"@babel/plugin-syntax-module-attributes",
-			{
-				"version": "may-2020"
-			}
+			"@babel/plugin-syntax-import-assertions"
 		]
 	],
 	"presets": [
